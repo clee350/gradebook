@@ -1,7 +1,5 @@
 package gradebook.model;
-
-import java.util.Collection;
-
+import java.util.ArrayList;
 /**
  *@author: Charles Lee
  *
@@ -9,11 +7,11 @@ import java.util.Collection;
  * Blueprint for the grading algorithm.
  */
 public abstract interface GradingScheme {
-    double removeLowestGrade(Collection<GradebookItem> grades,
+    double removeLowestGrade(GradebookItem[] list,
         GradebookCategory type);
-    double calcGradePercent();
-    double calcGradePercent(Collection<GradebookItem> group,
-        GradebookCategory type);
+    double percentOverall(double[] group,
+        GradebookCategory[] type);
     char letterGrade(double result);
-    double replaceGrade(GradebookCategory type, GradebookItem item);
+    double calculateByCategory(ArrayList<GradebookItem> list,
+        GradebookCategory type);
 }

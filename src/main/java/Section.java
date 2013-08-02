@@ -14,7 +14,7 @@ public Section(Student[] students) {
 public double avgSection() {
     double total = 0;
     for (Student each: studentList) {
-        total += each.getPercentGrade();
+        total += each.getGrade();
     }
     return (total / studentList.length);
 }

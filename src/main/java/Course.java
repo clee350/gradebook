@@ -38,4 +38,19 @@ public char courseLetter(double result) {
         return 'A';
     }
     }
+public String getCourseName() {
+    return title;
+}
+public String getCourseDescription() {
+    return description;
+}
+public int getCourseNumber() {
+    return number;
+}
+public String getReqs() {
+    return coursesNeeded.toString();
+}
+public String getSemesters() {
+    return season.toString();
+}
 }

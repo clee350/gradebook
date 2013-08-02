@@ -11,20 +11,22 @@ public class Student {
     private String studentName;
     private BuildGradeScheme gradeScheme;
     private GradebookCategory category;
-    private Collection<GradebookItem> scores;
+    private ArrayList<GradebookItem> scores;
     private double average;
 public Student(String name, BuildGradeScheme scheme,
-Collection<GradebookItem> figures) {
+Collection<GradebookItem> figures, double grade) {
     ArrayList<GradebookItem> list = new ArrayList<GradebookItem>();
     gradeScheme = scheme;
     studentName = name;
-    average = 0;
+    this.average = grade;
     for (GradebookItem each: figures) {
         list.add(each);
     }
 }
-public double getPercentGrade() {
-    average = gradeScheme.calcGradePercent();
+public double getPercentGrade(ArrayList<GradebookCategory> list) {
+    for (GradebookCategory each : list) {
+        average = gradeScheme.calculateByCategory(scores, each);
+    }
     return average;
 }
 public double getLetterGrade() {
@@ -38,5 +40,8 @@ public Collection<GradebookItem> getScore() {
 }
 public String getCategory() {
     return category.getCategoryName();
+}
+public double getGrade() {
+    return average;
 }
 }
